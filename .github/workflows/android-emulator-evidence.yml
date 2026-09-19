@@ -32,29 +32,7 @@ jobs:
           arch: x86_64
           profile: pixel_6
           working-directory: android
-          script: |
-            set +e
-            gradle :app:connectedDebugAndroidTest --stacktrace
-            BASE_STATUS=$?
-            gradle :app:assembleDebug
-            BUILD_STATUS=$?
-            if [ $BUILD_STATUS -eq 0 ]; then
-              adb install -r app/build/outputs/apk/debug/app-debug.apk
-              INSTALL_STATUS=$?
-            else
-              INSTALL_STATUS=1
-            fi
-            if [ $BASE_STATUS -eq 0 ] && [ $INSTALL_STATUS -eq 0 ]; then
-              gradle :consumer:connectedDebugAndroidTest --stacktrace
-              URI_STATUS=$?
-            else
-              URI_STATUS=1
-            fi
-            adb logcat -d -s SAFESEP_EVIDENCE:I '*:S' > ../evidence-api-${{ matrix.api }}.txt || true
-            if [ $BASE_STATUS -ne 0 ] || [ $BUILD_STATUS -ne 0 ] || [ $INSTALL_STATUS -ne 0 ] || [ $URI_STATUS -ne 0 ]; then
-              exit 1
-            fi
-            exit 0
+          script: bash run_evidence.sh ${{ matrix.api }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
