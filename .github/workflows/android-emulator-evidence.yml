@@ -1,7 +1,7 @@
 name: Android emulator evidence
 on:
   push:
-    branches: [main, android-emulator-evidence-v7]
+    branches: [main, android-emulator-evidence-v7, uri-authority-lifecycle-v8]
   pull_request:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
-      - name: Run owned-emulator baseline
+      - name: Run owned-emulator evidence suite
         uses: reactivecircus/android-emulator-runner@v2.38.0
         with:
           api-level: ${{ matrix.api }}
@@ -32,12 +32,7 @@ jobs:
           arch: x86_64
           profile: pixel_6
           working-directory: android
-          script: |
-            set +e
-            gradle :app:connectedDebugAndroidTest --stacktrace
-            TEST_STATUS=$?
-            adb logcat -d -s SAFESEP_EVIDENCE:I '*:S' > ../evidence-api-${{ matrix.api }}.txt || true
-            exit $TEST_STATUS
+          script: bash run_evidence.sh ${{ matrix.api }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
