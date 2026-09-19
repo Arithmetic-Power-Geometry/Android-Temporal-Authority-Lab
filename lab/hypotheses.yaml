@@ -1,0 +1,28 @@
+hypotheses:
+  - id: TAC-001
+    name: stale-uri-grant-after-profile-lock
+    capability: uri_grant
+    acquire_state: private_space_unlocked
+    transition: private_space_lock
+    oracle:
+      reacquire_in_target_state: denied
+      previous_capability_in_target_state: must_not_succeed
+    status: untested
+
+  - id: TAC-002
+    name: stale-pending-intent-after-profile-lock
+    capability: pending_intent
+    acquire_state: private_space_unlocked
+    transition: private_space_lock
+    oracle:
+      previous_capability_in_target_state: must_not_gain_new_privilege
+    status: untested
+
+  - id: TAC-003
+    name: stale-picker-grant-after-profile-lock
+    capability: picker_grant
+    acquire_state: private_space_unlocked
+    transition: private_space_lock
+    oracle:
+      previous_capability_in_target_state: must_not_expose_protected_content
+    status: untested
