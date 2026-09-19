@@ -1,0 +1,7 @@
+{
+  "hypothesis_id": "TAC-001",
+  "reacquire_target": "denied",
+  "exercise_old": "denied",
+  "sensitive_effect": false,
+  "synthetic_only": true
+}
