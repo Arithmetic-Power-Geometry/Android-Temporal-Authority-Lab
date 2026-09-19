@@ -33,8 +33,11 @@ jobs:
           profile: pixel_6
           working-directory: android
           script: |
+            set +e
             gradle :app:connectedDebugAndroidTest --stacktrace
-            adb logcat -d -s SAFESEP_EVIDENCE:I '*:S' > ../evidence-api-${{ matrix.api }}.txt
+            TEST_STATUS=$?
+            adb logcat -d -s SAFESEP_EVIDENCE:I '*:S' > ../evidence-api-${{ matrix.api }}.txt || true
+            exit $TEST_STATUS
       - uses: actions/upload-artifact@v4
         if: always()
         with:
