@@ -55,4 +55,4 @@ def root_resolvable(decisions,probes):
 def downward_closure_check(decisions,probes):
     A=exact_antichain(decisions,probes)
     return all((not covered(C,A)) or all(covered(D,A) for r in range(1,len(C)+1)
-        for D in combinations(C,r)) for C in powerset(len(decisions)))
+        for D0 in combinations(C,r) for D in [frozenset(D0)]) for C in powerset(len(decisions)))
