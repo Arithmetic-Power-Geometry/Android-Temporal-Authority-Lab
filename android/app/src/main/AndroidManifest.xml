@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <queries><package android:name="org.safesep.consumer" /></queries>
   <application android:label="SAFESEP Evidence" android:allowBackup="false" android:supportsRtl="true">
     <provider android:name=".SyntheticProvider" android:authorities="org.safesep.evidence.synthetic"
       android:exported="false" android:grantUriPermissions="true" />
