@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the SAFESEP-II V1 paper."
+title: "Android Temporal Authority Lab"
+type: software
+authors:
+  - family-names: "Akhtar"
+    given-names: "Mohammad Amir Khusru"
+    orcid: "https://orcid.org/0000-0002-3432-4199"
+date-released: "2026-09-20"
+repository-code: "https://github.com/Arithmetic-Power-Geometry/Android-Temporal-Authority-Lab"
+url: "https://github.com/Arithmetic-Power-Geometry/Android-Temporal-Authority-Lab"
+license: "LicenseRef-Other"
+keywords:
+  - "Android"
+  - "Pixel"
+  - "delegated authority"
+  - "temporal authority"
+  - "access control"
+  - "security research"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Akhtar"
+      given-names: "Mohammad Amir Khusru"
+      orcid: "https://orcid.org/0000-0002-3432-4199"
+  title: "Safe Separability under Revocable Authority: Destructive Evidence Coupling, Branch-Conditioned Adaptivity, and a Fixed-Parameter Behavioral Kernel"
+  year: 2026
+  doi: "10.5281/zenodo.22852609"
+  url: "https://doi.org/10.5281/zenodo.22852609"
