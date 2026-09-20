@@ -1,6 +1,18 @@
 # Android Temporal Authority Lab
 
+**Copyright © 2026 Mohammad Amir Khusru Akhtar**
+
 A defensive Android/Pixel security research laboratory for studying whether delegated authority remains valid after the security state that justified it has changed.
+
+## Relation to SAFESEP-II
+
+This repository is a complementary Android/Pixel systems testbed for the SAFESEP-II research line. It is intended for controlled, defensive experiments on owned or explicitly authorized Android/Pixel environments and does not by itself establish that deployed Android permission systems exhibit the theoretical failures studied in SAFESEP-II.
+
+**Citation**
+
+Akhtar, M. A. K. (2026). *Safe Separability under Revocable Authority: Destructive Evidence Coupling, Branch-Conditioned Adaptivity, and a Fixed-Parameter Behavioral Kernel* (Version V1). Zenodo. DOI: `10.5281/zenodo.22852609`
+
+https://doi.org/10.5281/zenodo.22852609
 
 ## Central hypothesis
 
